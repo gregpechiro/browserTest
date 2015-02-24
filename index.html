@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Zoom Envelopes Online Printing Solution">
+		<meta name="author" content="Zoom Envelopes">
+		<link rel="shortcut icon" href="/static/img/favicon.ico">
+		<title>Broswer Info</title>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/static/css/custom.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="dist/js/html5shiv.js"></script>
+			<script src="dist/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		BROWSER INFO
+		<br/><br/>
+		<div id="browser"></div><br/>
+		<div id="browserResolution"></div><br/>
+		<div id="screenResolution"></div><br/>
+		<div id="appCodeName"></div><br/>
+		<div id="appName"></div><br/>
+		<div id="appVersion"></div><br/>
+		<div id="cookieEnabled"></div><br/>
+		<div id="language"></div><br/>
+		<div id="platform"></div><br/>
+		<div id="product"></div><br/>
+		<div id="productSub"></div><br/>
+		<div id="userAgent"></div><br/>
+		<div id="vendor"></div><br/>
+		<div id="vendorSub"></div><br/>
+		<button id="vib">VIBRATE</button>
+		<script>
+		function browser () {
+		    var ua = navigator.userAgent, tem, 
+		    M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+		    if (/trident/i.test(M[1])) {
+		        tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+		        return ['IE', (tem[1] || '')];
+		    }
+		    if (M[1] === 'Chrome') {
+		        tem = ua.match(/\bOPR\/(\d+)/)
+		        if (tem != null) return ['Opera', (tem[1] || '')];
+		    }
+		    M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+		    if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
+		    return M.join(" ");
+		}
+		document.getElementById("vendor").innerHTML = "vendor: " + navigator.vendor;
+		document.getElementById("appCodeName").innerHTML = "appCodeName: " + navigator.appCodeName;
+		document.getElementById("appName").innerHTML = "appName: " + navigator.appName;
+		document.getElementById("appVersion").innerHTML = "appVersion: " + navigator.appVersion;
+		document.getElementById("cookieEnabled").innerHTML = "cookieEnabled: " + navigator.cookieEnabled;
+		document.getElementById("language").innerHTML = "language: " + navigator.language;
+		document.getElementById("platform").innerHTML = "platform: " + navigator.platform;
+		document.getElementById("product").innerHTML = "product: " + navigator.product;
+		document.getElementById("productSub").innerHTML = "productSub: " + navigator.productSub;
+		document.getElementById("userAgent").innerHTML = "userAgent: " + navigator.userAgent;
+		document.getElementById("vendorSub").innerHTML = "vendorSub: " + navigator.vendorSub;
+		document.getElementById("browserResolution").innerHTML = "browser resolution: " +  window.innerWidth + "x" + window.innerHeight;
+		document.getElementById("screenResolution").innerHTML = "screen resolution: " + screen.width + "x" + screen.height;
+		document.getElementById("browser").innerHTML = "browser: " + browser();
+		document.getElementById("vib").onclick = function() {
+			alert("vibrate");
+			navigator.vibrate([1000, 500, 1000]);
+		}
+		</script>
+	</body>
+</html>
