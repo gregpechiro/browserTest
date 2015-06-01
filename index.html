@@ -9,7 +9,6 @@
 		<title>Broswer Info</title>
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/static/css/custom.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="dist/js/html5shiv.js"></script>
 			<script src="dist/js/respond.min.js"></script>
@@ -35,7 +34,7 @@
 		<button id="vib">VIBRATE</button>
 		<script>
 		function browser () {
-		    var ua = navigator.userAgent, tem, 
+		    var ua = navigator.userAgent, tem,
 		    M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
 		    if (/trident/i.test(M[1])) {
 		        tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
